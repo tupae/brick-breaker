@@ -14,35 +14,35 @@ let leftPressed = false;
 
 const ball = {
     x: canvas.width / 2,
-    y: canvas.height - 30,
-    radius: 10,
-    dx: 2,
-    dy: -2,
-    speed: 4
+    y: canvas.height - 60,
+    radius: 14,
+    dx: 4,
+    dy: -4,
+    speed: 8
 };
 
 const paddle = {
-    height: 10,
-    width: 75,
-    x: (canvas.width - 75) / 2,
-    dx: 5
+    height: 20,
+    width: 150,
+    x: (canvas.width - 150) / 2,
+    dx: 10
 };
 
 const brick = {
-    rowCount: 3,
+    rowCount: 6,
     columnCount: 5,
-    width: 75,
-    height: 20,
-    padding: 10,
-    offsetTop: 30,
-    offsetLeft: 30
+    width: 150,
+    height: 40,
+    padding: 20,
+    offsetTop: 60,
+    offsetLeft: 60
 };
 
 let bricks = [];
 
-const brickBreakSound = new Audio('https://www.soundjay.com/button/sounds/button-7.mp3');
-const paddleHitSound = new Audio('https://www.soundjay.com/button/sounds/button-6.mp3');
-const wallHitSound = new Audio('https://www.soundjay.com/button/sounds/button-9.mp3');
+const brickBreakSound = new Audio('https://themushroomkingdom.net/sounds/wav/smb/smb_breakblock.wav');
+const paddleHitSound = new Audio('https://themushroomkingdom.net/sounds/wav/smb/smb_bump.wav');
+const wallHitSound = new Audio('https://themushroomkingdom.net/sounds/wav/smb/smb_bump.wav');
 
 function initBricks() {
     bricks = [];
@@ -102,7 +102,7 @@ function collisionDetection() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-    ctx.fillStyle = '#ff0000';
+    ctx.fillStyle = '#f70000';
     ctx.fill();
     ctx.closePath();
 }
@@ -110,7 +110,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddle.x, canvas.height - paddle.height, paddle.width, paddle.height);
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#fbd000';
     ctx.fill();
     ctx.closePath();
 }
@@ -125,7 +125,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brick.width, brick.height);
-                ctx.fillStyle = '#0095DD';
+                ctx.fillStyle = (r % 2 === 0) ? '#a84d12' : '#d47d1b';
                 ctx.fill();
                 ctx.closePath();
             }
@@ -162,9 +162,9 @@ function draw() {
                 document.location.reload();
             } else {
                 ball.x = canvas.width / 2;
-                ball.y = canvas.height - 30;
-                ball.dx = 2 * (Math.random() > 0.5 ? 1 : -1);
-                ball.dy = -2;
+                ball.y = canvas.height - 60;
+                ball.dx = 4 * (Math.random() > 0.5 ? 1 : -1);
+                ball.dy = -4;
                 paddle.x = (canvas.width - paddle.width) / 2;
             }
         }
@@ -185,12 +185,12 @@ function draw() {
 function levelUp() {
     level++;
     alert(`LEVEL ${level}!`);
-    ball.speed += 0.5;
-    ball.dx = (ball.dx / Math.abs(ball.dx)) * (Math.abs(ball.dx) + 0.5);
-    ball.dy = (ball.dy / Math.abs(ball.dy)) * (Math.abs(ball.dy) + 0.5);
+    ball.speed += 1;
+    ball.dx = (ball.dx / Math.abs(ball.dx)) * (Math.abs(ball.dx) + 1);
+    ball.dy = (ball.dy / Math.abs(ball.dy)) * (Math.abs(ball.dy) + 1);
     initBricks();
     ball.x = canvas.width / 2;
-    ball.y = canvas.height - 30;
+    ball.y = canvas.height - 60;
     paddle.x = (canvas.width - paddle.width) / 2;
 }
 

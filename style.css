@@ -1,25 +1,26 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #111;
+    background-image: url('https://i.imgur.com/qL6iC9q.png');
+    background-size: cover;
     color: #fff;
     margin: 0;
 }
 
 #game-container {
-    border: 2px solid #fff;
+    border: 4px solid #000;
     border-radius: 10px;
     padding: 20px;
-    background-color: #222;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 #game-canvas {
-    background-color: #000;
+    background-color: #5c94fc;
     border-radius: 5px;
 }
 
@@ -27,16 +28,16 @@ body {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #4CAF50;
+    background-color: #f70000;
     color: white;
-    border: none;
+    border: 2px solid #fff;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #start-button:hover {
-    background-color: #45a049;
+    background-color: #c40000;
 }
 
 #info {
@@ -44,4 +45,6 @@ body {
     justify-content: space-between;
     margin-top: 10px;
     font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 2px 2px #000;
 }
