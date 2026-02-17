@@ -1,14 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <h1>Brick Breaker</h1>
+
+    
+    <div id="game-container">
+        <canvas id="game-canvas" width="480" height="320"></canvas>
+        <button id="start-button">Start Game</button>
+        <div id="info">
+            <span>Lives: <span id="lives">3</span></span>
+            <span>Score: <span id="score">0</span></span>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
